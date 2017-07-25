@@ -1,0 +1,34 @@
+*{
+	background-color: #999999;
+}
+
+.main-box{
+	border: 1px solid #e6e6e6;
+	border-radius: 20px;
+  	text-align: center;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	width:50%;
+  	padding-top: 1%;
+  	transform: translate(-50%, -50%);
+  	background-color: #e6f2ff;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  	 			0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	 padding-bottom:2%;
+  	
+}
+
+h1,p,span,.quotes{
+	background-color: #e6f2ff;
+}
+.source{
+	position: fixed;
+    bottom: 1%;
+    right: 1%;
+    color: #fff;
+}
+
+a:link, a:visited{
+	color: #fff;
+}

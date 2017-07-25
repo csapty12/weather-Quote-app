@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="theme.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<!-- main div where quotes will be stored in a card -->
+	<div class = "container-fluid main-box">
+		<h1 class="heading"> Random Quote Machine </h1>
+		<p> Quotes to Inspire Your Day </p>
+		<button class = "btn btn-default newQ" type="submit"> Get New Quote </button>
+		<button class = "btn btn-default shareQ" type="submit"> Share Quote! </button>
+		<hr />
+		<!-- default quote when page loads -->
+		<div class = "quotes text-center">
+			<span class = "quote">ola hooman, hav many gd dai</span><br>
+			<i><span class = "author">-puggerino 2k17</span></i>
+		</div>
+	</div>
+	<div class = "source">
+		<a href= "https://codepen.io/csapty12/pen/OjPbza" target="_blank"> View Source Code here </a>
+	</div>
+
+<script>
+$(document).ready(function(){
+	// store the quotes and authors in vars
+	var randomQuote;
+	var randomAuth;
+
+	/**
+ 	* Retrieves new quote from forismaic API 
+ 	* Store quoteText and quoteAuthor in variables
+ 	*/
+	function getNewQuote(){
+
+		url="https://api.forismatic.com/api/1.0/?method=getQuote&&lang=en&format=jsonp&jsonp=?";
+		$.getJSON(url, function(data){
+			$(".quote").html('"'+data.quoteText+'"');
+			randomQuote = data.quoteText;
+			$(".author").html(data.quoteAuthor);
+			randomAuth = data.quoteAuthor;
+		});
+	}
+	$('.newQ').on('click',function(){
+		getNewQuote();
+	});
+
+	$('.shareQ').on('click',function(){
+		window.open("https://twitter.com/intent/tweet?text="+randomQuote+'-'+randomAuth);
+	})
+
+});
+
+</script>
+</body>
+
+</html>
